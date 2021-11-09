@@ -1,0 +1,18 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "backendapp",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+   "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js "
+  },
+  "author": "Thuan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
