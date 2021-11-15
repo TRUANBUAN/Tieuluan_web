@@ -18,6 +18,19 @@ export default function ProductScreen(props) {
         
         dispatch(detailsProduct( productId));
     },[dispatch,productId ]);
+
+    const addToCart = () => {
+        let list = JSON.parse(localStorage.getItem('cart'));
+        if (!list) {
+            list = {};
+        }
+        if(list[props.match.params.id])
+            list[props.match.params.id] += 1
+        else
+            list[props.match.params.id] = 1;
+        localStorage.setItem('cart', JSON.stringify(list));
+    }
+
     return (
         <div>
             {loading ? (<LoadingBox ></LoadingBox>) :
@@ -71,7 +84,7 @@ export default function ProductScreen(props) {
                                                 </div>
                                             </li>
                                             <li>
-                                                <button className="primary block">Add to Cart</button>
+                                                <button className="primary block" onClick={addToCart}>Add to Cart</button>
                                             </li>
                                         </ul>
                                     </div>
